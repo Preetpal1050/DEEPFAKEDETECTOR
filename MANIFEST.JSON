@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Deep Fake Detector",
+  "version": "1.0",
+  "description": "Flashes a blue screen every three reloads to alert users.",
+  "permissions": ["storage", "tabs", "activeTab", "scripting"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["blue_screen.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
